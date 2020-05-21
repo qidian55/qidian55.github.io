@@ -31,7 +31,7 @@
       repo: `qidian55.github.io`,  //您刚才建立仓库的名字
       owner: 'qidian55',   //你的GitHub用户名字
       admin: ['qidian55'],  //你的GitHub用户的名字
-      id: 'programs.ComputerGraphics', //id不能重复，如果重复就会把其他页面的评论引进来
+      id: 'unionread_extensions', //id不能重复，如果重复就会把其他页面的评论引进来
         });
       gitalk.render('gitalk-container');
 </script>
