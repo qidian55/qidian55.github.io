@@ -28,16 +28,19 @@
 						</div>
 						<input style="display: none !important" id="addon-1007" data-id="1007" data-name="联合阅读辅助插件" data-info="<p>作家助手自动修正到电脑模式</p>" data-author="qidian55" data-code="" data-url="*" data-status="0">
 						<textarea id="1" style="display:none;">/*联合阅读辅助插件*/
-(function () {
-    if (location.host.substr(location.host.length-13)==="unionread.vip") {
-        var url=location.href;
-        if (location.href.includes('?'))url+="&";
-        else url+="?";
-        if (location.pathname.substr(0,14)==="/module/author")url+="pt=web";
-        else url+="pt=m";
-        if(!(location.pathname.substr(0,14)==="/module/author" ^ document.head.outerHTML.includes("apple-mobile-web-app")) && (!location.href.includes('pt=')))location.href=url;
-        if (location.pathname.substr(0,21)==="/module/user/home.php")document.getElementsByTagName('ul')[0].outerHTML+='<li><a href=\"/module/author/index.php\"><img src=\"/templates/wmcms-m/img/shouye.png\" class=\"vm mrm\"><em>作家中心</em></a></li>';
-    }
+(function() {
+	if (location.host.substr(location.host.length - 13) === "unionread.vip") {
+		var url = location.href;
+		if (location.href.includes('?')) url += "&";
+		else url += "?";
+		if (location.pathname.substr(0, 14) === "/module/author") url += "pt=web";
+		else url += "pt=m";
+		if (location.pathname.substr(0, 14) !== "/module/author" ^ document.head.outerHTML.includes("apple-mobile-web-app")) location.href = url;
+		if (location.pathname === "/module/user/home.php") document.getElementsByTagName('ul')[0].outerHTML += '<li><a href=\"/module/author/index.php\"><img src=\"/templates/wmcms-m/img/shouye.png\" class=\"vm mrm\"><em>作家中心</em></a></li>';
+		if (location.pathname === "/module/novel/read.php") {
+			for(var par of document.getElementsByTagName('p'))par.textContent=par.textContent.trim();
+		}
+	}
 })();</textarea>
 					</div>
 				</div>
