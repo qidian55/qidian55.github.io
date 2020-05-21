@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>插件 - Via</title>
+		<link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="2142a98c0067.css" type="text/css" />
+	</head>
+	<body>
+		<nav class="navbar navbar-light bg-light"><span class="navbar-brand mb-0 h1">插件</span>
+			<form class="form-inline" action="/i18n/setlang/" method="post" id="lang-form">
+				<input name="next" type="hidden" value="/addons" />
+				<select name="language" onchange="submitLang()">
+					<option value="zh-hans" selected>简体中文</option>
+				</select>
+			</form>
+		</nav>
+		<div class="container margin-gap">
+			<div class="row">
+				<div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+					<div class="row border addon-item">
+						<div class="col align-self-center"><span class="addon-item-name">联合阅读辅助插件</span><small><a href class="text-secondary" data-toggle="modal" data-target="#addonModal" data-where="1007">查看详细</a></small>
+						</div>
+						<div class="col-auto align-self-center">
+							<button type="button" class="btn btn-link btn-sm" onclick="operate(1007)" id="operate-1007">安装</button>
+						</div>
+						<input style="display: none !important" id="addon-1007" data-id="1007" data-name="联合阅读辅助插件" data-info="<p>作家助手自动修正到电脑模式</p>" data-author="qidian55" data-code="" data-url="*" data-status="0">
+						<textarea id="1" style="display:none;">/*联合阅读辅助插件*/
+(function () {
+    if (location.host.substr(location.host.length-13)==="unionread.vip") {
+        var url=location.href;
+        if (location.href.includes('?'))url+="&";
+        else url+="?";
+        if (location.pathname.substr(0,14)==="/module/author")url+="pt=web";
+        else url+="pt=m";
+        if(!(location.pathname.substr(0,14)==="/module/author" ^ document.head.outerHTML.includes("apple-mobile-web-app")) && (!location.href.includes('pt=')))location.href=url;
+        if (location.pathname.substr(0,21)==="/module/user/home.php")document.getElementsByTagName('ul')[0].outerHTML+='<li><a href=\"/module/author/index.php\"><img src=\"/templates/wmcms-m/img/shouye.png\" class=\"vm mrm\"><em>作家中心</em></a></li>';
+    }
+})();</textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="addonModal" tabindex="-1" role="dialog" aria-labelledby="addonName" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="addonName"></h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<p id="addonInfo"></p><small><p id="addonAuthor" class="text-secondary"></p></small>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.slim.min.js"></script>
+		<script src="https://cdn.bootcss.com/popper.js/1.14.3/popper.min.js"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			var lang={'install':'安装','uninstall':'卸载'}
+			setTimeout(function(){document.getElementById('addon-1007').dataset.code=(new Base64()).encode(document.getElementById('1').textContent);}, 100);
+		</script>
+		<script type="text/javascript" src="c5578c3c8201.js"></script>
+	</body>
+
+</html>
