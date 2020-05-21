@@ -15,4 +15,4 @@
 * IOS：[alook浏览器](https://apps.apple.com/cn/app/id1261944766)（未测试）
 
 ### 插件地址
-https://qidian55.github.io/unionread_extensions/via
+[https://qidian55.github.io/unionread_extensions/via](https://qidian55.github.io/unionread_extensions/via)
