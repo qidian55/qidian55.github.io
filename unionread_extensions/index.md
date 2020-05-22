@@ -3,7 +3,15 @@
 > 有问题和建议请在本评论区或[联合阅读评论区](http://www.unionread.vip/module/novel/info.php?tid=3&nid=3153)留言
 
 ## 电脑端
-> 开发中
+
+### 功能
+1. 优化了搜索功能，解决无法搜索问题
+
+### 适用浏览器
+* 安装了[用户脚本管理器](https://greasyfork.org/zh-CN/)的各大浏览器
+
+### 插件地址
+[https://greasyfork.org/zh-CN/scripts/403902-联合阅读辅助插件](https://greasyfork.org/zh-CN/scripts/403902-联合阅读辅助插件)
 
 ## 手机端
 

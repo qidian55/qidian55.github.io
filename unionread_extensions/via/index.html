@@ -38,7 +38,7 @@
 		if (location.pathname.substr(0, 14) !== "/module/author" ^ document.head.outerHTML.includes("apple-mobile-web-app")) location.href = url;
 		if (location.pathname === "/module/user/home.php") document.getElementsByTagName('ul')[0].outerHTML += '<li><a href=\"/module/author/index.php\"><img src=\"/templates/wmcms-m/img/shouye.png\" class=\"vm mrm\"><em>作家中心</em></a></li>';
 		if (location.pathname === "/module/novel/read.php") {
-			for(var par of document.getElementsByTagName('p'))par.textContent=par.textContent.trim();
+			for (var par of document.getElementsByTagName('p')) par.textContent = par.textContent.trim();
 		}
 	}
 })();</textarea>
