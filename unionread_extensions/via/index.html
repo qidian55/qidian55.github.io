@@ -40,15 +40,15 @@
 	if (location.host.substr(location.host.length - 13) === "unionread.vip") {
 		/*解决评论换行显示问题*/
 		document.head.innerHTML+="<style>.pl-box-ctt{white-space:pre-wrap;}.fn16{white-space:pre-wrap;}</style>";
-		/*自动重定向*/
+		/*自动重定向（弃用）
 		var url = location.href;
 		if (location.href.includes('?')) url += "&";
 		else url += "?";
 		if (location.pathname.substr(0, 14) === "/module/author") url += "pt=web";
 		else url += "pt=m";
-		if (location.pathname.substr(0, 14) === "/module/author" ^ document.head.innerHTML.includes("wmcms-web")) location.href = url;
-		/*添加“作家中心”入口点*/
-		if (location.pathname === "/module/user/home.php") document.getElementsByTagName('ul')[0].innerHTML += '<li><a href=\"/module/author/index.php\"><img src=\"/templates/wmcms-m/img/shouye.png\" class=\"vm mrm\"><em>作家中心</em></a></li>';
+		if (location.pathname.substr(0, 14) === "/module/author" ^ document.head.innerHTML.includes("wmcms-web")) location.href = url;*/
+		/*添加“作家中心”入口点（弃用）
+		if (location.pathname === "/module/user/home.php") document.getElementsByTagName('ul')[0].innerHTML += '<li><a href=\"/module/author/index.php\"><img src=\"/templates/wmcms-m/img/shouye.png\" class=\"vm mrm\"><em>作家中心</em></a></li>';*/
 		/*去除段落前后空格*/
 		if (location.pathname === "/module/novel/read.php") {
 			for (var par of document.getElementsByTagName('p')) par.textContent = par.textContent.trim();
