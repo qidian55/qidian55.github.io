@@ -49,10 +49,10 @@
 		if (location.pathname.substr(0, 14) === "/module/author" ^ document.head.innerHTML.includes("wmcms-web")) location.href = url;*/
 		/*添加“作家中心”入口点（弃用）
 		if (location.pathname === "/module/user/home.php") document.getElementsByTagName('ul')[0].innerHTML += '<li><a href=\"/module/author/index.php\"><img src=\"/templates/wmcms-m/img/shouye.png\" class=\"vm mrm\"><em>作家中心</em></a></li>';*/
-		/*去除段落前后空格*/
+		/*去除段落前后空格（弃用）
 		if (location.pathname === "/module/novel/read.php") {
 			for (var par of document.getElementsByTagName('p')) par.textContent = par.textContent.trim();
-		}
+		}*/
 		/*解决作品信息换行显示问题*/
 		if (location.pathname === "/module/novel/info.php") {
 			document.getElementsByClassName("muma_wap magin")[0].children[1].style.whiteSpace='pre-wrap';
