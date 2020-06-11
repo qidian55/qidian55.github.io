@@ -8,11 +8,11 @@
 // @grant        GM_addStyle
 // ==/UserScript==
 (function() {
-    //优化搜索功能
+    /*优化搜索功能（弃用）
     for (var form of document.getElementsByTagName('form')) {
         var action = form.action;
         if (action.substr(action.length - 10) === 'search.php') form.method = 'get';
-    }
+    }*/
     //添加作品简介展开按钮
     for (var div of document.getElementsByClassName('works-intro-short ui-text-gray9')) {
         div.style.height = '54px';
