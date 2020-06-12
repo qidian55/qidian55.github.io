@@ -1,13 +1,18 @@
 // ==UserScript==
 // @name         联合阅读辅助插件
 // @namespace    http://*.unionread.vip/
-// @version      0.4
+// @version      0.5
 // @description  优化联合阅读一些程序方面体验
 // @author       qidian55
 // @match        http://*.unionread.vip/*
 // @grant        GM_addStyle
 // ==/UserScript==
 (function() {
+    //自动重定向至电脑版
+    var url = location.href;
+    if (location.href.includes('?')) url += "&pt=web";
+    else url += "?pt=web";
+    if (!location.href.includes('pt=web') && !document.head.innerHTML.includes("wmcms-web")) location.href = url;
     /*优化搜索功能（弃用）
     for (var form of document.getElementsByTagName('form')) {
         var action = form.action;
@@ -53,10 +58,10 @@
         }
     }
     if (location.pathname === '/module/author/novel_draftlist.php') {
-        var button=document.createElement('button');
-        button.id='autoSave';
-        button.style="position: fixed;bottom:20px; right:80px;z-index: 999;background: #ff8c00;color: #fff;height: 28px;cursor: pointer;";
-        button.textContent='尚未自动保存';
+        var button = document.createElement('button');
+        button.id = 'autoSave';
+        button.style = "position: fixed;bottom:20px; right:80px;z-index: 999;background: #ff8c00;color: #fff;height: 28px;cursor: pointer;";
+        button.textContent = '尚未自动保存';
         button.intervalTime = intervalTime;
         button.autoSave = autoSave;
         button.onclick = function() {
