@@ -1,13 +1,19 @@
 // ==UserScript==
 // @name         联合阅读辅助插件
 // @namespace    http://*.unionread.vip/
-// @version      0.5
+// @version      0.6
 // @description  优化联合阅读一些程序方面体验
 // @author       qidian55
 // @match        http://*.unionread.vip/*
+// @match        https://*.xrzww.com/*
 // @grant        GM_addStyle
 // ==/UserScript==
 (function() {
+    //自动换站
+    if (!location.href.includes('xrzww.com')) {
+        location.href = location.href.replace('unionread.vip', 'xrzww.com');
+        return;
+    }
     //自动重定向至电脑版
     var url = location.href;
     if (location.href.includes('?')) url += "&pt=web";
@@ -18,7 +24,7 @@
         var action = form.action;
         if (action.substr(action.length - 10) === 'search.php') form.method = 'get';
     }*/
-    //添加作品简介展开按钮
+    /*添加作品简介展开按钮（弃用）
     for (var div of document.getElementsByClassName('works-intro-short ui-text-gray9')) {
         div.style.height = '54px';
         div.innerHTML += `<a><svg style="position: absolute;top: 125px;width: 17px;left: 542px;transform: rotate(90deg);" viewBox="0 0 7 12">
@@ -35,7 +41,7 @@
                 this.children[0].style.transform = 'rotate(90deg)';
             }
         }
-    }
+    }*/
     //作家草稿箱自动保存
     var intervalTime = 30; //默认30秒保存一次
     function autoSave() {
@@ -79,5 +85,5 @@
         document.body.appendChild(button);
     }
 })();
-//解决评论换行显示问题
-GM_addStyle('.wmcms_replay_replaycontent{white-space: pre-wrap;}');
+//解决评论及作品简介换行显示问题
+GM_addStyle('.p2{white-space: pre-wrap;}.wmcms_replay_replaycontent{white-space: pre-wrap;}');
