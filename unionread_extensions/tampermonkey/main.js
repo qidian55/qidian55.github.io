@@ -1,7 +1,8 @@
 // ==UserScript==
 // @name         联合阅读辅助插件
 // @namespace    http://*.unionread.vip/
-// @version      0.6
+// @version      0.7
+// @license      Anti 996 License
 // @description  优化联合阅读一些程序方面体验
 // @author       qidian55
 // @match        http://*.unionread.vip/*
@@ -83,6 +84,16 @@
         }
         button.timer = setInterval(autoSave, intervalTime * 1000);
         document.body.appendChild(button);
+    }
+    //阅读本章说时屏蔽页面跳转
+    if (location.pathname === '/module/novel/read.php') {
+        setTimeout(function() {
+            document.onkeydown = function(e) {
+                if ($('.tr_container').length) return;
+                var iekey = event.keyCode;
+                action(iekey);
+            }
+        }, 1000);
     }
 })();
 //解决评论及作品简介换行显示问题
