@@ -30,16 +30,33 @@
 						<textarea id="1" style="display:none;">/*
 * @name: 联合阅读辅助插件
 * @Author: qidian55
-* @version: 210108.16
+* @version: 200524.16
 * @description: 联合阅读辅助插件
 * @include: *.unionread.vip
-* @createTime: 2021-01-08 00:00:00
-* @updateTime: 2021-01-08 16:00:00
+* @createTime: 2020-05-22 00:00:00
+* @updateTime: 2020-05-24 16:00:00
 */
 (function() {
-	if (/^(www.)?xrzww.com$/.test(location.hostname)) {
-		/*移除app下载框*/
-		document.querySelector('.downloadbox').style.visibility='hidden';
+	if (['unionread.vip','xrzww.com'].includes(location.hostname.split('.').slice(-2).join('.'))) {
+		/*解决评论换行显示问题*/
+		document.head.innerHTML+="<style>.pl-box-ctt{white-space:pre-wrap;}.fn16{white-space:pre-wrap;}</style>";
+		/*自动重定向（弃用）
+		var url = location.href;
+		if (location.href.includes('?')) url += "&";
+		else url += "?";
+		if (location.pathname.substr(0, 14) === "/module/author") url += "pt=web";
+		else url += "pt=m";
+		if (location.pathname.substr(0, 14) === "/module/author" ^ document.head.innerHTML.includes("wmcms-web")) location.href = url;*/
+		/*添加“作家中心”入口点（弃用）
+		if (location.pathname === "/module/user/home.php") document.getElementsByTagName('ul')[0].innerHTML += '<li><a href=\"/module/author/index.php\"><img src=\"/templates/wmcms-m/img/shouye.png\" class=\"vm mrm\"><em>作家中心</em></a></li>';*/
+		/*去除段落前后空格（重新启用）*/
+		if (location.pathname === "/module/novel/read.php") {
+			for (var par of document.getElementsByTagName('p')) par.textContent = par.textContent.trim();
+		}
+		/*解决作品信息换行显示问题*/
+		if (location.pathname === "/module/novel/info.php") {
+			document.getElementsByClassName("muma_wap magin")[0].children[1].style.whiteSpace='pre-wrap';
+		}
 	}
 })();</textarea>
 					</div>
