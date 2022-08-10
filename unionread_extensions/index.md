@@ -1,6 +1,6 @@
 # 联合阅读辅助插件
 
-> 有问题和建议请在本评论区或[联合阅读评论区](https://xrzww.com/#/thread?thread_id=998)留言
+> 有问题和建议请在本评论区或[联合阅读评论区](https://www.xrzww.com/column/forumdetail?thread_id=50203)留言
 
 ## 电脑端
 
