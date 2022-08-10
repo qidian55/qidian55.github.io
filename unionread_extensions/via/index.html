@@ -30,16 +30,30 @@
 						<textarea id="1" style="display:none;">/*
 * @name: 联合阅读辅助插件
 * @Author: qidian55
-* @version: 210108.16
+* @version: 220810.22
 * @description: 联合阅读辅助插件
 * @include: *.unionread.vip
-* @createTime: 2021-01-08 00:00:00
-* @updateTime: 2021-01-08 16:00:00
+* @createTime: 2020-05-21 19:00:00
+* @updateTime: 2022-08-10 22:00:00
 */
 (function() {
-	if (/^(www.)?xrzww.com$/.test(location.hostname)) {
-		/*移除app下载框*/
-		document.querySelector('.downloadbox').style.visibility='hidden';
+	if (/^(h5.)?xrzww.com$/.test(location.hostname)) {
+		var mystyle=document.createElement('style');
+		/*移除个人主页APP下载框*/
+		mystyle.innerHTML=`.downloadbox{visibility:hidden}`;
+		document.head.appendChild(mystyle);
+		/*调整显示问题*/
+        document.body.addEventListener('DOMNodeInserted',function(){
+            if(!location.hash.startsWith('#/pages/ranking/newbook'))return;
+            for(var x of document.getElementsByClassName('update_time'))if(x.childNodes[2].textContent.endsWith('万字'))x.childNodes[2].textContent=x.childNodes[2].textContent.substring(0,x.childNodes[2].textContent.length-2);
+        });
+        /*移除阅读页面APP下载遮挡*/
+        document.body.addEventListener('DOMNodeInserted',function(){
+            if(!location.hash.startsWith('#/pages/bookread/index'))return;
+            if(document.getElementsByClassName('qrcode').length==0)return;
+            if(!document.getElementsByClassName('app')[0].__vue__.$parent.pagedata)return;
+            document.getElementsByClassName('app')[0].__vue__.$parent.pagedata.chapter_ispay*=2;
+        });
 	}
 })();</textarea>
 					</div>
@@ -63,11 +77,11 @@
 		<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.slim.min.js"></script>
 		<script src="https://cdn.bootcss.com/popper.js/1.14.3/popper.min.js"></script>
 		<script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="c5578c3c8201.js"></script>
 		<script type="text/javascript">
 			var lang={'install':'安装','uninstall':'卸载'}
-			setTimeout(function(){document.getElementById('addon-1007').dataset.code=(new Base64()).encode(document.getElementById('1').textContent);}, 100);
+			document.getElementById('addon-1007').dataset.code=(new Base64()).encode(document.getElementById('1').textContent);
 		</script>
-		<script type="text/javascript" src="c5578c3c8201.js"></script>
 	</body>
 
 </html>

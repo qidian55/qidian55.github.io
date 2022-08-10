@@ -12,7 +12,7 @@
 3. 个人主页添加浏览记录
 
 ### 适用浏览器
-* 安装了[用户脚本管理器](https://www.bilibili.com/read/cv5293953)的各大浏览器
+* 安装了[用户脚本管理器](https://zhuanlan.zhihu.com/p/128453110)的各大浏览器
 
 ### 插件地址
 [https://greasyfork.org/zh-CN/scripts/403902-联合阅读辅助插件](https://greasyfork.org/zh-CN/scripts/403902-联合阅读辅助插件)
@@ -20,7 +20,9 @@
 ## 手机端
 
 ### 功能
-1. 移除app下载框
+1. 移除个人主页APP下载框
+2. 调整显示问题
+3. 移除阅读页面APP下载遮挡
 
 ### 适用浏览器
 * 安卓：[via浏览器](https://viayoo.com/zh-cn/)
